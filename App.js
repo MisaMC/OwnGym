@@ -1,5 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image,Button,Alert } from 'react-native';
+import {StyleSheet, Text, View, Image,Button,Alert, TouchableOpacity } from 'react-native';
+import {Scene, Router} from 'react-native-router-flux';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import ejercicios from './escenas/ejercicios';
+import alimentos from './escenas/alimentos';
+import estadisticas from './escenas/estadisticas';
+import alarmas from './escenas/alarmas';
 export default class registro extends React.Component {
   onPress(){
     Alert.alert(
@@ -30,13 +36,29 @@ export default class registro extends React.Component {
          title="Leer mas"
          backgroundColor='#0097e6'
          accessibilityLabel="Button1"/>
+       <Router>
+         <Scene key="root">
        <View style={{flex: 1, flexDirection: 'row', alignItems:'flex-end',}}>
-         <View onPress={this.onPress} style={{width: 80, height: 80, backgroundColor: 'powderblue'}} />
-         <View onPress={this.onPress} style={{width: 80, height: 80, backgroundColor: 'skyblue'}} />
-         <View onPress={this.onPress} style={{width: 80, height: 80, backgroundColor: 'steelblue'}} />
-         <View onPress={this.onPress} style={{width: 80, height: 80, backgroundColor: '#0097e6'}} />
-       </View>
+         <View  style={{width: 80, height: 80, backgroundColor: 'powderblue'}}>
+           <Scene key="ejercicios" component={ejercicios}/>
+           <Icon name="commenting-o" size={30} color="#900" />
+         </View>
+         <View  style={{width: 80, height: 80, backgroundColor: 'skyblue'}}>
+         <Scene key="alimentos" component={alimentos}/>
+         <Icon name="commenting-o" size={30} color="#900" />
+     </View>
+         <View  style={{width: 80, height: 80, backgroundColor: 'steelblue'}}>
+         <Scene key="estadisticas" component={estadisticas}/>
+         <Icon name="commenting-o" size={30} color="#900" />
+     </View>
+         <View  style={{width: 80, height: 80, backgroundColor: '#0097e6'}}>
+         <Scene key="alarmas" component={alarmas}/>
+         <Icon name="commenting-o" size={30} color="#900" />
+     </View>
     </View>
+    </Scene>
+  </Router>
+</View>
     );
   }
 }
