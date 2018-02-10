@@ -1,12 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image,Button,Alert, TouchableOpacity } from 'react-native';
+import {StyleSheet, Text, View, Image,Button ,Alert, TouchableOpacity } from 'react-native';
 import {Scene, Router} from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ejercicios from './escenas/ejercicios';
 import alimentos from './escenas/alimentos';
-import estadisticas from './escenas/estadisticas';
 import alarmas from './escenas/alarmas';
-export default class registro extends React.Component {
+import registro from './escenas/registro';
+export default class App extends React.Component {
   onPress(){
     Alert.alert(
   'Aviso',
@@ -23,35 +23,32 @@ export default class registro extends React.Component {
     let nombre = 'Amigo';
     return (
       <View style={styles.container}>
-        <View style={styles.head}></View>
-        <Text style={styles.texto}>OwnGym</Text>
-        <Image style={styles.imagen} source={require('./imagenes/logoApp.png')} />
-        <Text> </Text>
-        <Text> </Text>
-        <Text>¡Bienvenido {nombre}!</Text>
-        <Text>Mejora tu salud con nuestra nueva App</Text>
-        <View style={styles.head}></View>
-        <Button style={styles.boton1}
-         onPress={this.onPress}
-         title="Leer mas"
-         backgroundColor='#0097e6'
-         accessibilityLabel="Button1"/>
+       <Router>
+         <Scene key="root">
+          <Scene key="alarmas" component={alarmas}/>
+             <Scene key="alimentos" component={alimentos}/>
+             <Scene key="ejercicios" component={ejercicios}/>
+             <Scene key="registro" component={registro}/>
+         </Scene>
+       </Router>
 
-       <View style={{flex: 1, flexDirection: 'row', alignItems:'flex-end',}}>
-         <View  style={{width: 80, height: 80, backgroundColor: 'powderblue'}}>
-           <Icon name="home" size={40} color="#000" />
-         </View>
-         <View  style={{width: 80, height: 80, backgroundColor: 'skyblue'}}>
-         <Icon name="minus-squeare" size={40} color="#000" />
+       <View>
+         <View style={styles.head}></View>
+         <Text style={styles.texto}>OwnGym</Text>
+         <Image style={styles.imagen} source={require('./imagenes/logoApp.png')} />
+         <Text> </Text>
+         <Text> </Text>
+         <Text>¡Bienvenido {nombre}!</Text>
+         <Text>Mejora tu salud con nuestra nueva App</Text>
+         <View style={styles.head}></View>
+         <Button style={styles.boton1}
+          onPress={this.onPress}
+          title="Leer mas"
+          backgroundColor='#0097e6'
+          accessibilityLabel="Button1"/>
+
+       </View>
      </View>
-         <View  style={{width: 80, height: 80, backgroundColor: 'steelblue'}}>
-         <Icon name="delicius" size={40} color="#000" />
-     </View>
-         <View  style={{width: 80, height: 80, backgroundColor: '#0097e6'}}>
-         <Icon name="bell" size={40} color="#000" />
-     </View>
-    </View>
-</View>
     );
   }
 }
