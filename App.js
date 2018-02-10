@@ -36,28 +36,21 @@ export default class registro extends React.Component {
          title="Leer mas"
          backgroundColor='#0097e6'
          accessibilityLabel="Button1"/>
-       <Router>
-         <Scene key="root">
+
        <View style={{flex: 1, flexDirection: 'row', alignItems:'flex-end',}}>
          <View  style={{width: 80, height: 80, backgroundColor: 'powderblue'}}>
-           <Scene key="ejercicios" component={ejercicios}/>
-           <Icon name="commenting-o" size={30} color="#900" />
+           <Icon name="home" size={40} color="#000" />
          </View>
          <View  style={{width: 80, height: 80, backgroundColor: 'skyblue'}}>
-         <Scene key="alimentos" component={alimentos}/>
-         <Icon name="commenting-o" size={30} color="#900" />
+         <Icon name="minus-squeare" size={40} color="#000" />
      </View>
          <View  style={{width: 80, height: 80, backgroundColor: 'steelblue'}}>
-         <Scene key="estadisticas" component={estadisticas}/>
-         <Icon name="commenting-o" size={30} color="#900" />
+         <Icon name="delicius" size={40} color="#000" />
      </View>
          <View  style={{width: 80, height: 80, backgroundColor: '#0097e6'}}>
-         <Scene key="alarmas" component={alarmas}/>
-         <Icon name="commenting-o" size={30} color="#900" />
+         <Icon name="bell" size={40} color="#000" />
      </View>
     </View>
-    </Scene>
-  </Router>
 </View>
     );
   }
